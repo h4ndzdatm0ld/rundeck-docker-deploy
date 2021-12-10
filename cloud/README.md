@@ -29,6 +29,13 @@ cp .env.dist .env
 vim .env
 ```
 
+```
+RUNDECK_GRAILS_URL: "${RUNDECK_GRAILS_URL}"
+RUNDECK_SERVER_FORWARDED: "${RUNDECK_SERVER_FORWARDED}"
+```
+
+GRAILS_URL = DNS Entry of cloud instance
+
 **Build and Up**  
 > **NOTE:** Building is not necessary the first time, however
 it will be to use newer or different images after the
