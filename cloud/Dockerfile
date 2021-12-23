@@ -1,3 +1,0 @@
-ARG RUNDECK_IMAGE
-
-FROM ${RUNDECK_IMAGE:-rundeck/rundeck:3.4.4}

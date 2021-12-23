@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+<node name="Devpop"
+  osFamily="unix"
+  username="htinoco"
+  hostname="devpop.heshlaw.local"
+  ssh-authentication="password"
+  sudo-command-enabled="true"
+  sudo-password-storage-path="keys/devpop-pass"
+  />
+</project>

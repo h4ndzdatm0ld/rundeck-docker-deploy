@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+    rundeck:
+      network_mode: "bridge"
+      dns:
+        - 192.168.0.1
+        - 192.168.4.1
+        - 8.8.8.8
+      build:
+        context: "."
+        target: "final"
+        args:
+          RUNDECK_IMAGE: ${RUNDECK_IMAGE:-rundeck/rundeck:3.4.4}
+      tty: true
+      environment:
+        RUNDECK_GRAILS_URL: "${RUNDECK_GRAILS_URL}"
+        RUNDECK_SERVER_FORWARDED: "${RUNDECK_SERVER_FORWARDED}"
+      volumes:
+        - "data:/home/rundeck/server/data"
+    nginx:
+      network_mode: "bridge"
+      dns:
+        - 192.168.0.1
+        - 192.168.4.1
+        - 8.8.8.8
+      image: nginx
+      links:
+        - rundeck
+      volumes:
+        - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      ports:
+        - 80:80
+volumes:
+    data:
+    dbdata:
