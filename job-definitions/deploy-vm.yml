@@ -1,0 +1,31 @@
+- defaultTab: nodes
+  description: Deploy a VM to a local vSphere Data Center from an Ubnutu Template.
+  executionEnabled: true
+  id: 027280f8-12e0-4083-8f94-6c25539ff432
+  loglevel: DEBUG
+  name: Deploy VM
+  nodeFilterEditable: false
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: Devpop
+  nodesSelectedByDefault: true
+  options:
+  - label: vm_name
+    name: VMName
+    required: true
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - exec: docker pull h4ndzdatm0ld/vmware-mgmt:cli
+    - exec: docker run --env-file=.env h4ndzdatm0ld/vmware-mgmt:cli playbooks/vsphere/pb.deploy-vm.yml
+        -e cloned_vm_name="${option.VMName}"
+    keepgoing: false
+    strategy: node-first
+  uuid: 027280f8-12e0-4083-8f94-6c25539ff432

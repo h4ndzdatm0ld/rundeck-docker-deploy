@@ -1,0 +1,26 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 13074b42-6faf-46be-b78b-de05da122267
+  loglevel: INFO
+  name: Get VM Information
+  nodeFilterEditable: false
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: Devpop
+  nodesSelectedByDefault: true
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - exec: docker pull h4ndzdatm0ld/vmware-mgmt:cli
+    - exec: docker run  --env-file=.env h4ndzdatm0ld/vmware-mgmt:cli playbooks/vsphere/pb.get-vcenter-info.yml
+    keepgoing: false
+    strategy: node-first
+  uuid: 13074b42-6faf-46be-b78b-de05da122267
