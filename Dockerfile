@@ -1,6 +1,6 @@
 ARG RUNDECK_IMAGE
 
-FROM ${RUNDECK_IMAGE:-rundeck/rundeck:3.4.4} as base
+FROM ${RUNDECK_IMAGE} as base
 
 # ENVIRONMENT PARAMS
 ENV RDECK_BASE=/home/rundeck
