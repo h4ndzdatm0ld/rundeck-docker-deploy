@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-<node name="Devpop"
+<node name="runner-01"
   osFamily="unix"
   username="htinoco"
-  hostname="devpop.heshlaw.local"
+  hostname="job-runner-01.heshlaw.local"
   ssh-authentication="password"
   sudo-command-enabled="true"
   sudo-password-storage-path="keys/devpop-pass"
   ssh-options="-o ConnectTimeout=5000"/>
 </project>
-project.ssh-authentication=password
-project.ssh-password-storage-path=keys/rundeck.password
-project.ssh.user=rundeck

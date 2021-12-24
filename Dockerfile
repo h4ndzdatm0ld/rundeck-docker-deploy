@@ -18,3 +18,5 @@ RUN sudo apt-get update -y \
     && apt-get install python3 -y \
     && apt-get install iputils-ping -y \
     && apt-get install net-tools -y
+
+RUN alias python="python3"
